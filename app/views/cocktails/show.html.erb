@@ -1,23 +1,40 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <p>
+      <h1><%= @cocktail.name %></h1>
+    </p>
+    <p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @cocktail.name %>
-  </p>
-  <p>
-    <strong>Ingredients</strong>
-  </p>
+    </p>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Dose</th>
+          <th>Ingredient</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cocktail.doses.each do |dose| %>
+        <tr>
+          <td>
+            <%= dose.description %>
+          <td>
+            <%= dose.ingredient.name %>
+          </td>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
 
-    <% @cocktail.ingredients.each do |ingredient| %>
-      <p><%= ingredient.name %></p>
-    <% end %>
-
-    <% @cocktail.doses.each do |dose| %>
-      <p><%= dose.description %></p>
-    <% end %>
-
-
-  <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
-  <%= link_to 'Back', cocktails_path %>
-  <%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %>
+<!-- @cocktail.doses.first.description
+@cocktail.ingredients.first.name
+ -->
+    <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+    <%= link_to 'Back', cocktails_path %> |
+    <%= link_to "Add dose", new_cocktail_dose_path(@cocktail) %> | <%= link_to "Delete", @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
