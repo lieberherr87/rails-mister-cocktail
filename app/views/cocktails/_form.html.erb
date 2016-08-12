@@ -13,10 +13,12 @@
 
   <div class="field">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= f.file_field :photo, {class: "form-control"} %>
+      <%= f.hidden_field :photo_cache %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update Cockizzle", class: "btn btn-primary" %>
   </div>
 <% end %>
