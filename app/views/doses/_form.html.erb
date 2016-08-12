@@ -3,7 +3,7 @@
 <%= form_for [@cocktail, @dose] do |f| %>
   <%= f.label :description %>
   <%= f.text_field :description, class:"form-control" %>
-  <%= f.select(:ingredient_id, options_for_select( Ingredient.all.pluck(:name, :id)))%>
+  <%= f.select :ingredient_id, options_for_select( Ingredient.all.pluck(:name, :id)), {}, {class:"form-control"} %>
   <%= f.submit "Submit", class:"form-control btn btn-primary" %>
 <% end %>
 
